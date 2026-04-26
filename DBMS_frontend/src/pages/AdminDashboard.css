@@ -1,0 +1,177 @@
+/* Admin Dashboard specific CSS */
+
+.admin-section-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--color-purple-dim);
+  color: var(--color-purple-light);
+  border: 1px solid rgba(124,58,237,0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+/* Flow Diagram */
+.flow-diagram {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--color-dark);
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.flow-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+  min-width: 120px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: box-shadow var(--transition-normal);
+}
+
+.flow-node--react {
+  color: var(--color-purple-light);
+  border-color: rgba(168,85,247,0.4);
+  background: rgba(168,85,247,0.08);
+}
+.flow-node--django {
+  color: var(--color-green);
+  border-color: rgba(16,185,129,0.4);
+  background: rgba(16,185,129,0.08);
+}
+.flow-node--pg {
+  color: var(--color-blue);
+  border-color: rgba(59,130,246,0.4);
+  background: rgba(59,130,246,0.08);
+}
+
+.flow-diagram.active .flow-node--react { box-shadow: 0 0 20px rgba(168,85,247,0.3); }
+.flow-diagram.active .flow-node--django { box-shadow: 0 0 20px rgba(16,185,129,0.3); }
+.flow-diagram.active .flow-node--pg { box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+
+.flow-arrow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.5rem;
+  min-width: 80px;
+}
+
+.flow-line {
+  height: 2px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-purple) 0, var(--color-purple) 8px,
+    transparent 8px, transparent 16px
+  );
+  background-size: 32px;
+}
+
+.flow-diagram.active .flow-line {
+  animation: dashFlow 0.8s linear infinite;
+}
+
+.flow-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-grey-dim);
+  letter-spacing: 0.05em;
+}
+
+/* DBMS Layout */
+.dbms-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.dbms-left, .dbms-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dbms-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dbms-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  border: 1px dashed rgba(124,58,237,0.2);
+  border-radius: var(--radius-md);
+  color: var(--color-grey-dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Results table */
+.results-card {
+  transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+.results-card.result-success {
+  border-color: rgba(16,185,129,0.5);
+  box-shadow: 0 0 20px rgba(16,185,129,0.15);
+  animation: successFlash 0.5s ease;
+}
+@keyframes successFlash {
+  0%   { border-color: rgba(16,185,129,0.9); box-shadow: 0 0 30px rgba(16,185,129,0.4); }
+  100% { border-color: rgba(16,185,129,0.5); box-shadow: 0 0 20px rgba(16,185,129,0.15); }
+}
+
+.table-row-enter { animation: slideInRow 0.3s ease forwards; opacity: 0; }
+@keyframes slideInRow {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.sort-icon { color: var(--color-purple-light); font-size: 0.8em; }
+
+/* Vehicle card */
+.vehicle-card {
+  min-width: 220px;
+  flex-shrink: 0;
+  cursor: default;
+}
+
+@media (max-width: 1024px) {
+  .dbms-layout { grid-template-columns: 1fr; }
+  .flow-diagram { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .flow-arrow { min-width: 60px; }
+}
+@media (max-width: 768px) {
+  .flow-node { min-width: 90px; padding: 0.75rem; }
+}

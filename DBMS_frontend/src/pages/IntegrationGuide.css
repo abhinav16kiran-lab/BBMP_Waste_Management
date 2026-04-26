@@ -1,0 +1,413 @@
+/* Integration Guide CSS */
+
+.ig-page { background: var(--color-black); }
+
+/* Hero */
+.ig-hero {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(124,58,237,0.15);
+}
+.ig-subtitle {
+  color: var(--color-grey);
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0.75rem 0 1.25rem;
+  line-height: 1.7;
+}
+.ig-phase-legend {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.phase-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.875rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+.phase-1 { background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.3); color: var(--color-yellow); }
+.phase-2 { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3); color: var(--color-green); }
+.phase-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+/* Owner overview */
+.ig-owners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.ig-owner-card {
+  border-color: rgba(255,255,255,0.06);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+.ig-owner-card:hover {
+  border-color: var(--owner-color, var(--color-purple));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--owner-color, #7C3AED) 20%, transparent);
+}
+.ig-owner-header {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 1rem;
+}
+.ig-owner-avatar {
+  width: 42px; height: 42px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.ig-owner-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--color-white); }
+.ig-owner-role { font-size: 0.78rem; margin-top: 0.1rem; }
+.ig-endpoint-count {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-grey);
+  background: rgba(255,255,255,0.05);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+.ig-owner-apis { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.875rem; }
+.ig-api-tag {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+.ig-connect-hint {
+  font-size: 0.78rem;
+  color: var(--color-grey-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 0.875rem;
+}
+.ig-connect-hint code { font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-purple-light); }
+
+/* Architecture diagram */
+.ig-arch-diagram {
+  background: var(--color-dark);
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+.ig-arch-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-purple-light);
+  margin-bottom: 1.75rem;
+}
+.ig-arch-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.ig-arch-node {
+  flex: 1;
+  min-width: 160px;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.ig-arch-react  { border-color: rgba(168,85,247,0.5); background: rgba(168,85,247,0.06); }
+.ig-arch-django { border-color: rgba(16,185,129,0.5); background: rgba(16,185,129,0.06); }
+.ig-arch-pg     { border-color: rgba(59,130,246,0.5);  background: rgba(59,130,246,0.06); }
+
+.ig-arch-node-icon { font-size: 1.5rem; }
+.ig-arch-node-name {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+.ig-arch-node-sub  { font-family: var(--font-mono); font-size: 0.68rem; color: var(--color-grey-dim); }
+.ig-arch-node-files { font-size: 0.72rem; color: var(--color-grey); line-height: 1.7; margin-top: 0.25rem; }
+
+.ig-arch-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  min-width: 90px;
+}
+.ig-arch-line {
+  flex: 1;
+  width: 2px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--color-purple) 0, var(--color-purple) 6px,
+    transparent 6px, transparent 12px
+  );
+  min-height: 20px;
+}
+.ig-arch-label-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.35rem 0;
+}
+.ig-arch-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+}
+.ig-arch-label.green { color: var(--color-green); background: rgba(16,185,129,0.1); }
+.ig-arch-label.blue  { color: var(--color-blue);  background: rgba(59,130,246,0.1); }
+.ig-arch-sublabel { font-size: 0.6rem; color: var(--color-grey-dim); white-space: nowrap; font-family: var(--font-mono); }
+
+.ig-haversine-callout {
+  margin-top: 1.5rem;
+  background: rgba(251,191,36,0.07);
+  border: 1px solid rgba(251,191,36,0.25);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  color: #FDE68A;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+.ig-haversine-callout svg { flex-shrink: 0; margin-top: 2px; }
+.ig-haversine-callout code { font-family: var(--font-mono); color: var(--color-yellow); font-size: 0.8rem; }
+
+/* Filter row */
+.ig-filter-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.ig-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.875rem;
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 999px;
+  background: var(--color-dark);
+  color: var(--color-grey);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.ig-filter-btn:hover { border-color: rgba(124,58,237,0.5); color: var(--color-white); }
+.ig-filter-btn.active {
+  border-color: var(--color-purple);
+  color: var(--color-purple-light);
+  background: var(--color-purple-dim);
+}
+.ig-filter-count {
+  background: rgba(255,255,255,0.06);
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+}
+
+/* Integration cards */
+.ig-cards { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+
+.ig-card {
+  padding: 0;
+  overflow: hidden;
+  border-color: rgba(255,255,255,0.07);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+.ig-card:hover, .ig-card--open {
+  border-color: var(--ic-color, var(--color-purple));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--ic-color, #7C3AED) 15%, transparent);
+}
+
+.ig-card-header {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  text-align: left;
+}
+.ig-card-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  flex: 1;
+}
+.ig-card-owner-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px currentColor;
+}
+.ig-card-endpoint {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-white);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+.ig-card-meta { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.ig-card-file { font-size: 0.75rem; color: var(--color-grey); font-family: var(--font-mono); }
+.ig-card-owner-badge {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.ig-card-chevron {
+  color: var(--color-grey);
+  transition: transform var(--transition-normal);
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+.ig-card-chevron.open { transform: rotate(180deg); }
+.ig-card-desc {
+  font-size: 0.875rem;
+  color: var(--color-grey);
+  line-height: 1.65;
+  padding: 0 1.5rem 1.25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Expanded body */
+.ig-card-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+.ig-req-res {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.ig-code-col { display: flex; flex-direction: column; gap: 0.4rem; }
+.ig-code-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-grey);
+}
+
+.ig-code-block {
+  background: #080810;
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.8;
+  color: #C4B5FD;
+  overflow-x: auto;
+  white-space: pre;
+  flex: 1;
+}
+
+.ig-phases { display: flex; flex-direction: column; gap: 1rem; }
+.ig-phase { display: flex; flex-direction: column; gap: 0.5rem; }
+.ig-phase-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.ig-phase-badge {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+.ig-phase-badge--1 { background: rgba(251,191,36,0.12); color: var(--color-yellow); border: 1px solid rgba(251,191,36,0.3); }
+.ig-phase-badge--2 { background: rgba(16,185,129,0.12); color: var(--color-green);  border: 1px solid rgba(16,185,129,0.3); }
+.ig-phase-note { font-size: 0.75rem; color: var(--color-grey-dim); }
+
+.ig-code--mock { border-color: rgba(251,191,36,0.2); color: #FDE68A; }
+.ig-code--real { border-color: rgba(16,185,129,0.2); color: #6EE7B7; }
+
+.ig-connect-step {
+  background: rgba(124,58,237,0.06);
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1rem;
+  font-size: 0.82rem;
+  color: var(--color-grey);
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+.ig-connect-step svg { flex-shrink: 0; margin-top: 2px; }
+.ig-connect-step code { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-purple-light); }
+.ig-connect-step strong { color: var(--color-white); }
+
+/* Axios interceptor box */
+.ig-interceptor-box {
+  background: var(--color-dark);
+  border: 1px solid rgba(168,85,247,0.3);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(124,58,237,0.08);
+}
+.ig-interceptor-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-purple-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.ig-interceptor-box p { font-size: 0.875rem; color: var(--color-grey); line-height: 1.6; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ig-owners { grid-template-columns: 1fr; }
+  .ig-req-res { grid-template-columns: 1fr; }
+  .ig-arch-flow { flex-direction: column; }
+  .ig-arch-connector { flex-direction: row; min-width: unset; padding: 0.5rem 0; }
+  .ig-arch-line { width: 30px; height: 2px; min-height: unset; }
+}
+@media (max-width: 600px) {
+  .ig-card-header { flex-direction: column; }
+  .ig-phase-header { flex-direction: column; align-items: flex-start; }
+}
